@@ -3,7 +3,6 @@
 let container = document.getElementById('videos_gallery')
 let lecteur = document.getElementById('player')
 let title;
-// lecteur.setAttribute('src','https://www.youtube.com/embed/zz1FiFx3XRE')
 const options = {
 	method: 'GET',
 	headers: {
@@ -67,20 +66,12 @@ fetch('https://youtube-v31.p.rapidapi.com/search?q=Fally ipupa&part=snippet%2Cid
 .catch(err => console.error(err));
 
 
-// document.getElementById('nom').addEventListener('change',(e)=>title = e.target.value)
 document.getElementById('search_btn').addEventListener('click',()=>{
 	// container
 	fetch(`https://youtube-v31.p.rapidapi.com/search?q=${title}&part=snippet%2Cid&regionCode=US&maxResults=50&order=date`, options)
 	.then(response => response.json())
 	.then(response => {   
 		response.items.forEach(element => {
-			// let reader = document.createElement('iframe')
-			// reader.setAttribute('frameBorder',"0")
-			// reader.setAttribute('allowFullScreen',"")
-			// reader.setAttribute('allow',"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture")
-			// reader.setAttribute('loading',"lazy")
-			// reader.setAttribute('src',`https://www.youtube.com/embed/${element.id.videoId}`)
-			// container.appendChild(reader)
 
 			let div1 = document.createElement('div')
 				div1.setAttribute('class',"videos_gallery_item")
@@ -96,13 +87,6 @@ document.getElementById('search_btn').addEventListener('click',()=>{
 						div111.innerText = "2:13"
 				div11.appendChild(img1)
 				div11.appendChild(div111)
-
-				// let iframe1 = document.createElement('iframe')
-				// iframe1.setAttribute('id',"player")
-				// iframe1.setAttribute('frameBorder',"0")
-				// iframe1.setAttribute('allowFullScreen',"")
-				// iframe1.setAttribute('allow',"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture")
-				// iframe1.setAttribute('loading',"lazy")
 
 				let div12 = document.createElement('div')
 					div12.setAttribute('class',"videos_details")
