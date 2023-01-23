@@ -17,26 +17,14 @@ fetch('https://youtube-v31.p.rapidapi.com/search?q=Fally ipupa&part=snippet%2Cid
 .then(response => { 
 	console.log(response.items)  
 	response.items.forEach(element => {
-		// let reader = document.createElement('iframe')
-		// reader.setAttribute('frameBorder',"0")
-		// reader.setAttribute('allowFullScreen',"")
-		// reader.setAttribute('allow',"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture")
-		// reader.setAttribute('loading',"lazy")
-		// reader.setAttribute('src',`https://www.youtube.com/embed/${element.id.videoId}`)
-		// container.appendChild(reader)
 
 		let div1 = document.createElement('a')
 				div1.setAttribute('class',"videos_gallery_item")
-				// div1.setAttribute('onClick',()=> console.log(element.id.videoId))
-				// div1.setAttribute('onClick',"window.location.pathname='/pages/watch.html'")
-				// div1.setAttribute('onClick',"consoe.log('Rien du tout')")
-				// div1.addEventListener('click',()=>lecteur.setAttribute('src','https://www.youtube.com/embed/zz1FiFx3XRE'))
-				div1.setAttribute('href',"./pages/watch.html")
+				div1.setAttribute('href',`./pages/watch.html?id=${element.id.videoId}`)
 
 				let div11 = document.createElement('div')
 					div11.setAttribute('class',"video_placeholder")
 					let img1 = document.createElement('img')
-						// img1.setAttribute('src',"./images/vid_placeholder.webp")
 						img1.setAttribute('src',element.snippet.thumbnails.high.url)
 						img1.setAttribute('alt',"")
 					let div111 = document.createElement('div')
@@ -51,7 +39,6 @@ fetch('https://youtube-v31.p.rapidapi.com/search?q=Fally ipupa&part=snippet%2Cid
 					let div121 = document.createElement('div')
 						div121.setAttribute('class',"chaine_picture")
 						let img2 = document.createElement('img')
-							// img2.setAttribute('src',"./images/avatar.png")
 							img2.setAttribute('src',element.snippet.thumbnails.medium.url)
 							img2.setAttribute('alt',"")
 					div121.appendChild(img2)
@@ -59,11 +46,9 @@ fetch('https://youtube-v31.p.rapidapi.com/search?q=Fally ipupa&part=snippet%2Cid
 					let div122 = document.createElement('div')
 						let div1221 = document.createElement('div')
 							div1221.setAttribute('class',"videos_title")
-							// div1221.innerText = "C'est pourquoi Ronaldinho a été traité de sorcier"
 							div1221.innerText = element.snippet.title
 						let div1222 = document.createElement('div')
 							div1222.setAttribute('class',"chaine_name")
-							// div1222.innerText = "Joga Bonito"
 							div1222.innerText = element.snippet.channelTitle
 						let div1223 = document.createElement('div')
 							div1223.setAttribute('class',"views_times")
